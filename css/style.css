@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+*{
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+:root{
+  font-size: 16px;
+  --skyBlue : #87CEEB;
+  --sunYellow: #FFD700;
+  --gray : #CCCCCC;
+  --leafGreen : #71B24B;
+  --oceanBlue : #0077BE;
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+  --transition-speed: 600ms;
+}
+html{
+  font-family: 'Kanit';
+}
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #cceeff;
+}
+/*Scroll bar options : */
+body::-webkit-scrollbar{
+  width: 0.25rem;
+}
+body::-webkit-scrollbar-track{
+  background-color: var(--skyBlue);
+}
+body::-webkit-scrollbar-thumb{
+  background-color: var(--sunYellow);
+}
+/*###*/
+.navbar{
+  overflow: none;
+}
+/*search element*/
+.search{
+  border: 1px solid var(--gray);
+  width: 60vw;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+}
+.searchChild{
+  margin: 2rem;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+.searchInput {
+  height: 4rem;
+  width: 50vw;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 2rem;
+  transition: all 0.3s ease-in-out;
+}
+.searchInput:hover {
+  border-color: #333;
+  background-color: rgb(247, 247, 247);
+}
+.searchInput:focus {
+  outline: none;
+  border:2px solid var(--bg-secondary);
+}
+.searchInput::placeholder {
+  color: #999;
+}
+.searchChild hr{
+  border: 1px  solid var(--gray);
+  width: 40vw;
+}
+.searchContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  list-style: none;
+  padding: 0;
+}
+.searchContainer li{
+  border: 1px var(--gray) solid;
+  padding: 1rem;
+  border-radius: 1rem;
+  position: relative;
+  display: grid;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+}
+.searchContainer li:active {
+  transform: scale(0.95);
+}
+.flagContainer{
+  grid-area: flag;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+  width: 6rem;
+}
+.searchFlag{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.place{
+  grid-area: place;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.origin{
+  grid-area: origin;
+  color:gray;
+}
+.loading{
+  height: 5rem;
+  width: 5rem;
+  overflow: hidden;
+}
+.loading svg{
+  height: 100%;
+  width: 100%;
+  animation: spin 1s linear infinite
+}
+/* city info */
+.city-info {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-width: 400px;
+}
+
+.city-name {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.country-flag {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  border: 3px solid #cceeff;
+  display: block;
+  margin: 0 auto 20px;
+  object-fit: cover;
+}
+
+.current-time {
+  font-size: 20px;
+  margin-top: 0;
+  color: #555;
+}
+
+.time {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.day-night {
+  font-style: italic;
+  color: #28a745;
+}
+/* weather forecast */
+.temperature-info,.weather-info,.wind-info {
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin: 40px auto;
+  width: 80%;
+  min-width: 400px;
+  text-align: center;
+}
+
+.current-temp,.current-weather {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.weekly-temp,.weekly-weather {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.weekly-forecast {
+  list-style: none;
+  padding: 0;
+}
+
+.forecast-item,.wind-item{
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+.wind-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.forecast-item .weather,.forecast-item .weatherr{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  transform: translate(-50%);
+}
+.weather img{
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 70px;
+}
+.weekly-forecast:hover .forecast-item:not(:hover) {
+  filter: blur(1px) grayscale(60%);
+}
+.temp-details {
+  font-size: 16px;
+}
+
+.max-temp,
+.min-temp {
+  font-weight: bold;
+  color: #28a745;
+}
+.wind-dir{
+  width: 100px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  overflow: hidden;
+}
+.wind-dir-item{
+  overflow: hidden;
+}
+.wind-dir img,.wind-dir-item img{
+  width: 100%;
+  height: 100%;
+}
+.wind-dir-item{
+  width: 100px;
+  height: 100px;
+}
+
+.temperature {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: inline-block;
+  font-size:50px;
+  font-weight: bold;
+  color: #007bff;
+  margin-left: 10px;
+}
+.today{
+  border: 1px solid black;
+  background-color: rgb(223, 237, 255);
+}
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+.resources{
+  margin-top: 3rem;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+/*###*/
+@media only screen and (max-width: 600px) {
+  .main {
+    padding : 1rem 0 6rem 0;
+  }
+  .search{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding: 0;
+    width: 80vw;
+  }
+  .searchContainer li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .place,.origin{
+    text-align: center;
+  }
+  .searchContainer li .flagContainer {
+    margin-bottom: 1rem;
+  }
+  .searchContainer li:active {
+    background-color: lightgray;
+  }
+  .resources{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding: 0;
+    width: 80vw;
+  }
+}
+/* Large screens settings */
+@media only screen and (min-width: 600px) {
+.main{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0%);
+}
+  .searchContainer li{
+    grid-template-areas: 
+    "flag place"
+    "flag origin";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows:  1fr 1fr;
+    cursor: pointer;
+  }
+  .searchContainer li:hover {
+    background-color: lightgray;
+  }
+}
+.theme-icon {
+  display: none;
+}

@@ -1,0 +1,114 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #cceeff;
+        font-family: Arial, sans-serif;
+      }
+      .temperature-info,.weather-info,.wind-info {
+        background-color: #f1f1f1;
+        border-radius: 20px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin: 40px auto;
+        width: 80%;
+        min-width: 400px;
+        text-align: center;
+      }
+      
+      .current-temp,.current-weather {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #333;
+      }
+      
+      .weekly-temp,.weekly-weather {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #333;
+      }
+      
+      .weekly-forecast {
+        list-style: none;
+        padding: 0;
+      }
+      
+      .forecast-item,.wind-item{
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease-in-out;
+      }
+      .wind-item{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .forecast-item .weather{
+        position: relative;
+        width: 70px;
+        display: flex;
+        flex-direction: column;
+        left: 50%;
+        transform: translate(-50%);
+      }
+      .weekly-forecast:hover .forecast-item:not(:hover) {
+        filter: blur(1px) grayscale(60%);
+      }
+      .temp-details {
+        font-size: 16px;
+      }
+      
+      .max-temp,
+      .min-temp {
+        font-weight: bold;
+        color: #28a745;
+      }
+      .wind-dir{
+        width: 100px;
+        height: 100px;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+      }
+      .wind-dir img,.wind-dir-item img{
+        width: 100%;
+        height: 100%;
+      }
+      .wind-dir-item{
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wind-info">
+      <p class="current-weather">
+        Current wind speed/direction :<div class="wind-dir"><img src="./img/arrow.svg"></div><div class="weather-text"><span class="max-temp">15</span> km/h</div>
+      </p>
+      <p class="weekly-weather">Weather throughout the week:</p>
+      <ul class="weekly-forecast">
+        <li class="wind-item">
+          26-04-2024 :<div class="wind-dir-item"><img src="./img/arrow.svg"></div><div class="weather-text"><span class="max-temp">15</span> km/h</div>
+        </li>
+        <li class="wind-item">
+          27-04-2024 :<div class="wind-dir-item"><img src="./img/arrow.svg"></div><div class="weather-text"><span class="max-temp">15</span> km/h</div>
+        </li>
+        <li class="wind-item">
+          Today :<div class="wind-dir-item"><img src="./img/arrow.svg"></div><div class="weather-text"><span class="max-temp">15</span> km/h</div>
+        </li>
+        <li class="wind-item">
+          28-04-2024 :<div class="wind-dir-item"><img src="./img/arrow.svg"></div><div class="weather-text"><span class="max-temp">15</span> km/h</div>
+        </li>
+        <li class="wind-item">
+          29-04-2024 :<div class="wind-dir-item"><img src="./img/arrow.svg"></div><div class="weather-text"><span class="max-temp">15</span> km/h</div>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
